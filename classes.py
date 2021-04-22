@@ -18,4 +18,6 @@ class Category:
     def transfer(self):
         pass
 
-    input("Enter your First name: \n")
+
+f_name = input("Enter your First name: \n")
+
