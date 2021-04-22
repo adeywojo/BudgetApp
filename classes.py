@@ -1,23 +1,30 @@
 class Category:
-    def __init__(self, first_name, last_name, expense, amount, balance):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.expense = expense
+    def __init__(self, budget_category, amount):
+        self.budget_category = budget_category
         self.amount = amount
-        self.balance = balance
 
-    def deposit(self):
-        pass
+    def deposit(self, amount):
+        self.amount += amount
+        return f"You have deposited {amount} in your {self.budget_category} account."
 
-    def withdraw(self):
-        pass
+    def withdraw(self, amount):
+        self.amount -= amount
+        return f"You have withdrawn {amount} from your {self.budget_category} account."
 
-    def check_balance(self):
-        pass
+    def current_balance(self):
+        return f"Your current balance is {self.amount}"
 
-    def transfer(self):
-        pass
+    def check_balance(self, amount):
+        if amount >= self.amount:
+            return True
+        else:
+            return False
 
 
-f_name = input("Enter your First name: \n")
+food = Category("Food", 500)
+clothing = Category("Clothing", 200)
+transportation = Category("Transportation", 100)
+rent = Category("Rent", 1000)
 
+print(food.deposit(100))
+print(food.current_balance())
